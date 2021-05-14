@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="text-align: center;" color="danger" *ngIf="!alarma">
+    <ion-title>
+      {{texto}}
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar style="text-align: center;" color="success" *ngIf="alarma">
+    <ion-title>
+      {{texto}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <div class="divButton">
+      <ion-button color="danger" (click)="Activar()" *ngIf="!alarma">
+        <ion-icon class="iconLogout" name="power-sharp"></ion-icon>
+      </ion-button>
+      <ion-button color="success" (click)="Desactivar()" *ngIf="alarma">
+        <ion-icon class="iconLogout" name="power-sharp"></ion-icon>
+      </ion-button>
+  </div>
+
+  <div class="alert show" *ngIf="alert">
+    <span class="msg">{{alertMsj}}</span>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button color="danger" (click)="Logout()">
+      <ion-icon name="log-out-sharp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+</ion-content>

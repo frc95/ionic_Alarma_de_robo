@@ -1,0 +1,51 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <div class="alert show" *ngIf="alert">
+      <span class="msg">{{alertMsj}}</span>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div id=header>
+    <img id=titulo src="assets/login/titulo.png">
+    <img id=logo src="assets/login/alarma.png">
+  </div>
+
+  <form id="form" [formGroup]="loginForm" (ngSubmit)="Login(loginForm)">
+  
+    <ion-item class="ion-margin-bottom">
+      <ion-label position="stacked">Correo electrónico</ion-label>
+      <ion-input formControlName="email" [value]='email'></ion-input>
+    </ion-item>
+    <ion-item class="ion-margin-bottom">
+      <ion-label position="stacked">Contraseña</ion-label>
+      <ion-input formControlName="password" type="password" [value]='password'></ion-input>
+    </ion-item>
+
+    <ion-button color="success" expand="block" type="submit" shape="round">Iniciar sesión</ion-button>
+  </form>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button color="success">
+      <ion-icon name="arrow-forward-circle-sharp"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="end">
+      <ion-fab-button data-desc="Invi" (click)="LoginInvitado()" color="success">
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button data-desc="Admi" (click)="LoginAdmin()" color="success">
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button data-desc="Usua" (click)="LoginUsuario()" color="success">
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button data-desc="Anon" (click)="LoginAnonimo()" color="success">
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button data-desc="Test" (click)="LoginTester()" color="success">
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+</ion-content>
